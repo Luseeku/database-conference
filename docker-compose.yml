@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "HardPasswordAsMSSQLShitRequires123!"
+    volumes:
+      - "./entrypoint.sh:/entrypoint.sh:ro"
+      - "./import-data.sh:/import-data.sh:ro"
+      - "./scripts/schema.sql:/schema.sql:ro"
+      - "./scripts/init-db.sql:/init-db.sql:ro"
+      - "./scripts/functions.sql:/functions.sql:ro"
+      - "./scripts/procedures.sql:/procedures.sql:ro"
+      - "./scripts/triggers.sql:/triggers.sql:ro"
+      - "./scripts/views.sql:/views.sql:ro"
+      - "./scripts/data.sql:/data.sql:ro"
+    entrypoint: bash /entrypoint.sh
+    ports:
+      - 1433:1433
+  sqlpad:
+    image: sqlpad/sqlpad
+    ports:
+      - 3000:3000
+    volumes:
+      - "./sql_pad_data:/var/lib/sqlpad"

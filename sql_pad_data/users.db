@@ -1,0 +1,2 @@
+{"email":"luseeku@gmail.com","role":"admin","signupDate":{"$$date":1588104295380},"modifiedDate":{"$$date":1588104295380},"passhash":"$2a$10$u7Q9MmILh/IutO/7NBl2JOVgBN5BOfk6tu.F7XI27c577PSyTiaOi","createdDate":1588104295686,"_id":"o5mU9iU8d37nzWym"}
+{"$$indexCreated":{"fieldName":"email","unique":true,"sparse":false}}
